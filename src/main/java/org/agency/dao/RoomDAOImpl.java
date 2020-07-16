@@ -37,7 +37,9 @@ public class RoomDAOImpl implements RoomDAO {
     public List<Room> availableByDate(String checkIn, String checkOut) {
         Session session = sessionFactory.getCurrentSession();
         Query<Room> query = session.createQuery("from Room where id not in (select o.room.id from Order o where (:checkIn between o.checkIn" +
-                " and o.checkOut) or (:checkOut between o.checkIn and o.checkOut)) and id not in (select o.room.id from Order o where ((o.checkIn between :checkIn and :checkOut) AND (o.checkOut between :checkIn and :checkOut)))", Room.class)
+                " and o.checkOut) or (:checkOut between o.checkIn and o.checkOut)) and " +
+                "id not in (select o.room.id from Order o where ((o.checkIn between :checkIn and :checkOut) " +
+                "and (o.checkOut between :checkIn and :checkOut)))", Room.class)
                 .setParameter("checkIn", LocalDate.parse(checkIn))
                 .setParameter("checkOut", LocalDate.parse(checkOut));
         return query.getResultList();
