@@ -1,0 +1,26 @@
+.username {
+    color: white;
+    padding-left: 750px;
+    padding-top: 8px;
+}
+
+.test {
+    margin-left: 210px;
+}
+
+.text {
+    font-weight: bold;
+}
+
+.usernameWS {
+    color: white;
+    margin-left: 710px;
+    margin-right: 20px;
+    padding-top: 8px;
+}
+
+.error {
+    color: red;
+    text-align: center;
+    margin-top: -26px;
+}
